@@ -14,4 +14,6 @@ Pod::Spec.new do |s|
   s.dependency 'Salesforce-Common-Utils-iOS-Taptera'
   s.dependency 'MKNetworkKit-Salesforce-Taptera'
 
+  s.prefix_header_file = 'SalesforceNetworkSDK/SalesforceNetworkSDK-Prefix.pch'
+
 end
