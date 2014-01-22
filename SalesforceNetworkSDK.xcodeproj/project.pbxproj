@@ -35,6 +35,7 @@
 		10B761821612775400B3CD58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B761811612775400B3CD58 /* Security.framework */; };
 		10B761841612775C00B3CD58 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B761831612775C00B3CD58 /* MobileCoreServices.framework */; };
 		10B761861612776000B3CD58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B761851612776000B3CD58 /* SystemConfiguration.framework */; };
+		B03A25687F2744D5979E3F23 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D860DE56E848AEB07F7177 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +55,10 @@
 		10B761811612775400B3CD58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		10B761831612775C00B3CD58 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		10B761851612776000B3CD58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		63D860DE56E848AEB07F7177 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB893A1216A4CCDE00B1A2F2 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		CB893A1516A4CCF200B1A2F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D4F3D6C6E7264FAAA8E2F873 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03A25687F2744D5979E3F23 /* libPods.a in Frameworks */,
 				10B761861612776000B3CD58 /* SystemConfiguration.framework in Frameworks */,
 				10B761841612775C00B3CD58 /* MobileCoreServices.framework in Frameworks */,
 				10B761821612775400B3CD58 /* Security.framework in Frameworks */,
@@ -80,6 +84,7 @@
 				1090C53A161275BF0054B040 /* SalesforceNetworkSDK */,
 				1090C537161275BF0054B040 /* Frameworks */,
 				1090C536161275BF0054B040 /* Products */,
+				D4F3D6C6E7264FAAA8E2F873 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +104,7 @@
 				10B761831612775C00B3CD58 /* MobileCoreServices.framework */,
 				10B761811612775400B3CD58 /* Security.framework */,
 				1090C538161275BF0054B040 /* Foundation.framework */,
+				63D860DE56E848AEB07F7177 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1090C543161275BF0054B040 /* Build configuration list for PBXNativeTarget "SalesforceNetworkSDK" */;
 			buildPhases = (
+				4F78B5F31F124A10AC7AB296 /* Check Pods Manifest.lock */,
 				100F54501614E2C000FD5EB8 /* Sources */,
 				1090C532161275BF0054B040 /* Frameworks */,
 				100F54081614E03000FD5EB8 /* Headers */,
+				FDC5A30107264F13A0086313 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,18 +201,35 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DE48CCE18BFAEDF008345C7 /* ShellScript */ = {
+		4F78B5F31F124A10AC7AB296 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"Salesforce.com\" \\\n--company-id \"com.salesforce\" \\\n--output \"${PROJECT_DIR}/../../build/artifacts/doc/${PROJECT_NAME}\" \\\n--install-docset \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--merge-categories \\\n--exit-threshold 2 \\\n--docset-platform-family iphoneos \\\n--ignore \"*.m\" \\\n--include \"${PROJECT_DIR}/${PROJECT_NAME}/Documentation/Images\" \\\n--ignore \"LoadableCategory.h\" \\\n--index-desc \"${PROJECT_DIR}/readme.md\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}\"";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FDC5A30107264F13A0086313 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -312,20 +337,11 @@
 		};
 		1090C544161275BF0054B040 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4F3D6C6E7264FAAA8E2F873 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/SalesforceNetworkSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SalesforceNetworkSDK/SalesforceNetworkSDK-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/dependencies/**",
-					"$(PROJECT_DIR)/../../external/ThirdPartyDependencies/**",
-					"$(PROJECT_DIR)/../../external/MKNetworkKit/MKNetworkKit/**",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/dependencies/**",
-				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -333,20 +349,11 @@
 		};
 		1090C545161275BF0054B040 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4F3D6C6E7264FAAA8E2F873 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/SalesforceNetworkSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SalesforceNetworkSDK/SalesforceNetworkSDK-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/dependencies/**",
-					"$(PROJECT_DIR)/../../external/ThirdPartyDependencies/**",
-					"$(PROJECT_DIR)/../../external/MKNetworkKit/MKNetworkKit/**",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/dependencies/**",
-				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
