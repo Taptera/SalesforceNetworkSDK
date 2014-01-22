@@ -1,0 +1,17 @@
+PODS:
+  - MKNetworkKit-Salesforce-Taptera (0.87):
+    - Reachability (~> 3.1.0)
+    - Salesforce-Common-Utils-iOS-Taptera
+  - Reachability (3.1.1)
+  - Salesforce-Common-Utils-iOS-Taptera (1.0)
+
+DEPENDENCIES:
+  - MKNetworkKit-Salesforce-Taptera
+  - Salesforce-Common-Utils-iOS-Taptera
+
+SPEC CHECKSUMS:
+  MKNetworkKit-Salesforce-Taptera: 2009c5e7bf7a907a1d99e9f1ad8a0b05a7a01d39
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  Salesforce-Common-Utils-iOS-Taptera: 6154d0561d98aa8a89befb7e54e4599ee50d773e
+
+COCOAPODS: 0.28.0
