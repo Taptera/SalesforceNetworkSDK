@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.platform        =  :ios, '6.0'
 
   s.source_files     = 'MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}'
-  s.ios.exclude_files =  '**/*NSAlert*'
+  s.ios.exclude_files =  '**/*NSAlert*', 'MKNetworkKit/Reachability/*.{h,m}'
   s.osx.exclude_files =  '**/*UIAlertView*'
   s.ios.frameworks   =  'CFNetwork', 'Security', 'ImageIO'
   s.osx.frameworks   =  'CoreServices', 'Security'
