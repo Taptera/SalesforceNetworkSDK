@@ -1,17 +1,25 @@
 PODS:
-  - MKNetworkKit-Salesforce-Taptera (0.87):
+  - CocoaLumberjack (1.6.4):
+    - CocoaLumberjack/Core
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.6.4)
+  - CocoaLumberjack/Extensions (1.6.4):
+    - CocoaLumberjack/Core
+  - MKNetworkKit-Salesforce-Taptera (0.87-Salesforce):
     - Reachability (~> 3.1.0)
     - Salesforce-Common-Utils-iOS-Taptera
   - Reachability (3.1.1)
-  - Salesforce-Common-Utils-iOS-Taptera (1.0)
+  - Salesforce-Common-Utils-iOS-Taptera (1.0):
+    - CocoaLumberjack (= 1.6.4)
 
 DEPENDENCIES:
-  - MKNetworkKit-Salesforce-Taptera
+  - MKNetworkKit-Salesforce-Taptera (= 0.87-Salesforce)
   - Salesforce-Common-Utils-iOS-Taptera
 
 SPEC CHECKSUMS:
-  MKNetworkKit-Salesforce-Taptera: 2009c5e7bf7a907a1d99e9f1ad8a0b05a7a01d39
-  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
-  Salesforce-Common-Utils-iOS-Taptera: 6154d0561d98aa8a89befb7e54e4599ee50d773e
+  CocoaLumberjack: e03e9ba0022d69a837016b471d0b702e94c7803e
+  MKNetworkKit-Salesforce-Taptera: 9081b2eb2b769038c3c6d59488cdde0270566d7b
+  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  Salesforce-Common-Utils-iOS-Taptera: 8cfb08f3e5a63864522c550423d97c338f766530
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.34.2
